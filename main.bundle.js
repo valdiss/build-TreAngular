@@ -8,7 +8,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -26,7 +26,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "h1, h2 {\n  color: white;\n  font-family: Sketch;\n  text-align: center;\n}\n\nh1 {\n  font-size: 4em;\n}\n\n.header {\n  padding: 20px;\n}\n\n.navbar {\n  box-shadow: 0px 5px 10px #d3d3d3!important;\n  border-radius: 0!important;\n}\n", ""]);
+exports.push([module.i, "h1, h2 {\n  color: white;\n  font-family: Sketch;\n  text-align: center;\n}\n\nh1 {\n  font-size: 4em;\n}\n\nh2.project {\n  font-family: inherit;\n}\n\n.header {\n  padding: 5px;\n}\n\n.navbar {\n  box-shadow: 0px 5px 10px #d3d3d3!important;\n  border-radius: 0!important;\n}\n", ""]);
 
 // exports
 
@@ -44,7 +44,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "button {\n  font-size: 1.5em;\n}\n", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -129,49 +129,49 @@ module.exports = module.exports.toString();
 /***/ 159:
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"container\">\n  <div class=\"row\">\n    <app-projects (projectCreated)='onNewProject($event)' (projectDeleted)='onDeleteProject($event)' (projectSelected)='onSelectedProject($event)' [projects]='projects' [selectedProject]='currentProject'></app-projects>\n  </div>\n  <div class=\"row\" *ngIf='projects.length>0'>\n    <div class=\"col-md-3 panel panel-default\">\n      <div class=\"panel-heading\">\n        <h2 class=\"panel-title\">Todo</h2>\n      </div>\n      <div class=\"panel-body\">\n        <app-list-todo class='text-center' *ngFor='let Task of Tasks' [currentProject]='currentProject' [task]='Task' (taskClicked)='onStateUpdate($event)'></app-list-todo>\n      </div>\n    </div>\n    <div class=\"col-md-4 col-md-offset-1 panel panel-default\">\n      <div class=\"panel-heading\">\n        <h2 class=\"panel-title\">Current</h2>\n      </div>\n      <div class=\"panel-body\">\n        <app-list-current class='text-center' *ngFor='let Task of Tasks' [currentProject]='currentProject' [task]='Task' (taskClicked)='onStateUpdate($event)'></app-list-current>\n      </div>\n    </div>\n    <div class=\"col-md-3 col-md-offset-1 panel panel-default\">\n      <div class=\"panel-heading\">\n        <h2 class=\"panel-title\">Done</h2>\n      </div>\n      <div class=\"panel-body\">\n        <app-list-done class='text-center' *ngFor='let Task of Tasks' [currentProject]='currentProject' [task]='Task' (taskClicked)='onStateUpdate($event)'></app-list-done>\n      </div>\n    </div>\n  </div>\n  <h3 *ngIf='projects.length === 0' class=\"\">Start by creating a new project!</h3>\n  <hr>\n  <h3 *ngIf='projects.length === 1 && timesVisited <= 5'>Then Create your tasks!</h3>\n  <div class=\"row\" *ngIf='projects.length>0'>\n    <div class=\"col-md-6 col-md-offset-3\">\n      <app-new-task (taskCreated)='onNewTask($event)' [currentProject]='currentProject'></app-new-task>\n      <br>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<app-header [currentProject] = 'currentProject'></app-header>\n<div class=\"container\">\n  <div class=\"row\" *ngIf='projects.length>0'>\n    <div class=\"col-md-3 panel panel-default\">\n      <div class=\"panel-heading\">\n        <h2 class=\"panel-title\">Todo</h2>\n      </div>\n      <div class=\"panel-body\">\n        <app-list-todo class='text-center' *ngFor='let Task of Tasks' [currentProject]='currentProject' [task]='Task' (taskClicked)='onStateUpdate($event)'></app-list-todo>\n      </div>\n    </div>\n    <div class=\"col-md-4 col-md-offset-1 panel panel-default\">\n      <div class=\"panel-heading\">\n        <h2 class=\"panel-title\">Current</h2>\n      </div>\n      <div class=\"panel-body\">\n        <app-list-current class='text-center' *ngFor='let Task of Tasks' [currentProject]='currentProject' [task]='Task' (taskClicked)='onStateUpdate($event)'></app-list-current>\n      </div>\n    </div>\n    <div class=\"col-md-3 col-md-offset-1 panel panel-default\">\n      <div class=\"panel-heading\">\n        <h2 class=\"panel-title\">Done</h2>\n      </div>\n      <div class=\"panel-body\">\n        <app-list-done class='text-center' *ngFor='let Task of Tasks' [currentProject]='currentProject' [task]='Task' (taskClicked)='onStateUpdate($event)'></app-list-done>\n      </div>\n    </div>\n  </div>\n  <hr>\n  <div class=\"row\">\n    <app-projects *ngIf='projects.length===0' class='col-md-12' (projectCreated)='onNewProject($event)' (projectDeleted)='onDeleteProject($event)' (projectSelected)='onSelectedProject($event)' [projects]='projects' [selectedProject]='currentProject'></app-projects>\n    <app-projects *ngIf='projects.length>0'class='col-md-6' (projectCreated)='onNewProject($event)' (projectDeleted)='onDeleteProject($event)' (projectSelected)='onSelectedProject($event)' [projects]='projects' [selectedProject]='currentProject'></app-projects>\n    <app-new-task class=\"col-md-6\" *ngIf='projects.length>0' (taskCreated)='onNewTask($event)' [currentProject]='currentProject' [timesVisited]='timesVisited'></app-new-task>\n  </div>\n  <h3 *ngIf='projects.length === 0'>Start by creating a new project!</h3>\n  <hr>\n\n</div>\n"
 
 /***/ }),
 
 /***/ 160:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n  <div class=\"container\">\n    <div class=\"header\">\n        <h1>TreAngular</h1>\n        <h2>An Angular project</h2>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-inverse\">\n  <div class=\"container\">\n    <div class=\"header\">\n        <h1>TreAngular</h1>\n        <h2 *ngIf='!currentProject'>An Angular project</h2>\n        <h2 *ngIf='currentProject' class=\"project\"> Project: {{currentProject}}</h2>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
 /***/ 161:
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <button class='btn btn-success' type=\"button\" name=\"button\" *ngIf='(task.state === \"current\") && (task.project === currentProject)' (click)='onTaskClicked(task.description,task.state, task.project)'>{{task.description}} <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span></button>\n</div>\n"
+module.exports = "<div>\n  <button class='btn btn-success' type=\"button\" title=\"You're done? Then click me!\" name=\"button\" *ngIf='(task.state === \"current\") && (task.project === currentProject)' (click)='onTaskClicked(task.description,task.state, task.project)'>{{task.description}}, started at {{task.start | date: 'HH:mm on dd/MM/yyyy '}} <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span></button>\n</div>\n"
 
 /***/ }),
 
 /***/ 162:
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <button class='btn btn-danger' type=\"button\" name=\"button\" *ngIf='(task.state === \"done\") && (task.project === currentProject)' (click)='onTaskClicked(task.description,task.state, task.project)'>{{task.description}} <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span></button>\n</div>\n"
+module.exports = "<div>\n  <button class='btn btn-danger' type=\"button\" title=\"Carefull! If you click me I'll disappear!\" name=\"button\" *ngIf='(task.state === \"done\") && (task.project === currentProject)' (click)='onTaskClicked(task.description,task.state, task.project)'>{{task.description}} <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span></button>\n</div>\n"
 
 /***/ }),
 
 /***/ 163:
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <button class='btn btn-default' type=\"button\" name=\"button\" *ngIf='(task.state === \"todo\") && (task.project === currentProject)' (click)='onTaskClicked(task.description,task.state, task.project)'>{{task.description}} <span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span></button>\n</div>\n"
+module.exports = "<div>\n  <button class='btn btn-default' type=\"button\" title=\"Let's get to work!\" name=\"button\" *ngIf='(task.state === \"todo\") && (task.project === currentProject)' (click)='onTaskClicked(task.description,task.state, task.project)'>{{task.description}} <span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span></button>\n</div>\n"
 
 /***/ }),
 
 /***/ 164:
 /***/ (function(module, exports) {
 
-module.exports = "<form>\n  <div class=\"form-group\">\n    <label for=\"newtask\">Task Description</label>\n    <input name='description' type=\"text\" class=\"form-control\" #description>\n  </div>\n  <button class=\"btn btn-success\" (click)='onNewTaskCreated(description)'>Add a new Task</button>\n</form>\n"
+module.exports = "<form>\n  <div class=\"form-group\">\n    <label for=\"newtask\">Create a new task</label>\n    <input name='description' type=\"text\" class=\"form-control\" #description>\n  </div>\n  <button class=\"btn btn-success\" (click)='onNewTaskCreated(description)'>Add a new Task</button>\n  <h3 class='taskcreation' *ngIf='timesVisited <= 5'>Then Create your tasks!</h3>\n</form>\n"
 
 /***/ }),
 
 /***/ 165:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='projects.length>0' class=\"form-group\">\n  <label for=\"projects\">Select your project:</label>\n  <select (click)='onSelectedProject(selectedProject)' class=\"form-control\" id=\"projects\" [(ngModel)]=\"selectedProject\">\n    <option  *ngFor=\"let project of projects\" [value]=\"project\">{{project}}</option>\n  </select>\n</div>\n\n  <form>\n    <div class=\"form-group\">\n      <label for=\"newproject\">Create a new project</label>\n      <input required type=\"text\" class=\"form-control\" #newprojectName>\n    </div>\n    <button class=\"btn btn-success\" (click)='onNewProjectCreated(newprojectName)'>Add a new Project</button>\n    <button class=\"btn btn-danger\" (click)='onDeleteProject(selectedProject)' *ngIf='projects.length>0'>Delete the current Project</button>\n  </form>\n  <hr>\n"
+module.exports = "<div *ngIf='projects.length>1' class=\"form-group\">\n  <label for=\"projects\">Select your project</label>\n  <select (click)='onSelectedProject(selectedProject)' class=\"form-control\" id=\"projects\" [(ngModel)]=\"selectedProject\">\n    <option  *ngFor=\"let project of projects\" [value]=\"project\">{{project}}</option>\n  </select>\n</div>\n\n  <form>\n    <div class=\"form-group\">\n      <label for=\"newproject\">Create a new project</label>\n      <input required type=\"text\" class=\"form-control\" #newprojectName>\n    </div>\n    <button class=\"btn btn-success\" (click)='onNewProjectCreated(newprojectName)'>Add a new Project</button>\n    <button class=\"btn btn-danger\" (click)='onDeleteProject(selectedProject)' *ngIf='projects.length>0'><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete the current Project </button>\n  </form>\n"
 
 /***/ }),
 
@@ -303,6 +303,7 @@ var AppComponent = (function () {
                 }
             }
             taskClicked.state = 'current';
+            taskClicked.start = new Date();
             newTasks.push(taskClicked);
             this.Tasks = newTasks;
             this.JSONTasks = JSON.stringify(this.Tasks);
@@ -310,7 +311,6 @@ var AppComponent = (function () {
         }
         else if (taskClicked.state === 'current') {
             var newTasks = [];
-            // this.formerTasks = this.Tasks;
             for (var i = 0; i < this.Tasks.length; i++) {
                 if (this.Tasks[i].description !== taskClicked.description) {
                     newTasks.push(this.Tasks[i]);
@@ -324,7 +324,6 @@ var AppComponent = (function () {
         }
         else if (taskClicked.state === 'done') {
             var newTasks = [];
-            // this.formerTasks = this.Tasks;
             for (var i = 0; i < this.Tasks.length; i++) {
                 if (this.Tasks[i].description !== taskClicked.description) {
                     newTasks.push(this.Tasks[i]);
@@ -444,6 +443,10 @@ var HeaderComponent = (function () {
     };
     return HeaderComponent;
 }());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */])(),
+    __metadata("design:type", Object)
+], HeaderComponent.prototype, "currentProject", void 0);
 HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-header',
@@ -650,6 +653,10 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */])(),
     __metadata("design:type", Object)
 ], NewTaskComponent.prototype, "currentProject", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Input */])(),
+    __metadata("design:type", Object)
+], NewTaskComponent.prototype, "timesVisited", void 0);
 NewTaskComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-new-task',
